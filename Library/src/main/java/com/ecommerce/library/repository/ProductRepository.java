@@ -28,7 +28,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> listViewProducts();
 
 
-    @Query(value = "select * from products p inner join categories c on c.category_id = p.category_id where p.category_id = ?1", nativeQuery = true)
+    @Query(value = "select * from products p inner join categorys c on c.category_id = p.category_id where p.category_id = ?1", nativeQuery = true)
     List<Product> getRelatedProducts(Long categoryId);
 
 

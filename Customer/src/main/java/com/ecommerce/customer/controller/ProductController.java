@@ -29,7 +29,10 @@ public class ProductController {
     @GetMapping("/find-product/{id}")
     public String findProductById(@PathVariable("id") Long id, Model model){
         Product product = productService.getProductById(id);
+        Long categoryId = product.getCategory().getId();
+        List<Product> products = productService.getRelatedProducts(categoryId);
         model.addAttribute("product",product);
+        model.addAttribute("products", products);
         return "product-detail";
     }
 }
