@@ -1,5 +1,6 @@
 package com.ecommerce.library.service;
 
+import com.ecommerce.library.dto.CategoryDto;
 import com.ecommerce.library.model.Category;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,8 @@ public interface CategoryService {
     void enabledById(Long id);
 
     List<Category> findAllByActivated();
+
+    /*Customer*/
+    List<CategoryDto> getCategoryAndProduct();
 
 }
