@@ -42,9 +42,11 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
-                    <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option><a href="http://localhost:8020/shop/sign-in">Sign In </a></option>
-                        <option><a href="http://localhost:8020/shop/sign-up">Sign Up </a></option>
+                    <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
+                        <option th:text="${session.username != null} ? ${session.username} : 'Authentication'"></option>
+                        <option th:if = "${session.username == null}" value="http://localhost:8020/shop/login">Sign In</option>
+                        <option th:if = "${session.username != null}" value="http://localhost:8020/shop/logout">Log out</option>
+                        <option value="http://localhost:8020/shop/register" >Sign Up</option>
                     </select>
                 </div>
                 <div class="text-slid-box">
